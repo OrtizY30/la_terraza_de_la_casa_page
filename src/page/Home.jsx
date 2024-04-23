@@ -14,11 +14,11 @@ const Home = () => {
           </p> */}
      </div>
    
-        <div className="flex flex-col sm:flex-row gap-4 items-center">
+        <div className="flex flex-col  gap-4 items-center">
          
             <p className="text-white cursor-pointer font-black hover:text-orange-500">
 
-            ¿Deseas pedir a domicilio o reservar pulsa aqui?
+            ¿Deseas pedir a domicilio o reservar?, pulsa aqui
             </p>
 
             <box-icon name='down-arrow-alt' animation='flashing' color="#ee7009" size='lg' ></box-icon>
