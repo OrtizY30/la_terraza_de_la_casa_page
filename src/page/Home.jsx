@@ -21,6 +21,8 @@ const Home = () => {
             ¿Deseas pedir a domicilio o reservar pulsa aqui?
             </p>
 
+            <box-icon name='down-arrow-alt' animation='flashing' color="#ee7009" size='lg' ></box-icon>
+
             <a href="#menu">
 
 <button className="bg-orange-400 uppercase font-bold text-white p-2 w-28 rounded-lg hover:bg-orange-600 hover:text-white transition-all ease-in-out duration-500">
