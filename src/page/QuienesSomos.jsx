@@ -31,7 +31,7 @@ const QuienesSomos = () => {
           <br />
           El menú de{" "}
           <span className="text-orange-500 ">La Terraza de la Casa</span> está
-          pensado para el comensal e hoy, cuya tendencia es la creciente
+          pensado para el comensal de hoy, cuya tendencia es la creciente
           preocupación por los alimentos que consume..
           <br />
           <br />
