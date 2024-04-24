@@ -30,9 +30,7 @@ const Menu = () => {
   // const menuTerrazaKit = MenuCompleto.filter(
   //   (item) => item.categoria === "terrazaKit"
   // );
-
-
-
+  
   return (
     <div
       id="menu"
