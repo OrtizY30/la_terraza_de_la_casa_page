@@ -79,7 +79,7 @@ const Header = () => {
                     >Contactos</Link>
                 </li>
                 <li>
-                    <Link to="#" 
+                    <Link to="/redes" 
                     className='text-2xl text-orange-400 font-black mx-5 hover:text-orange-800 transition-all ease-in-out duration-300'
                     onClick={()=> setOpen(false)}
                     >Redes</Link>
