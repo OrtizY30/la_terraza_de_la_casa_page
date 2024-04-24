@@ -4,6 +4,7 @@ import Layout from '../components/Layout'
 import QuienesSomos from '../page/QuienesSomos'
 import Home from '../page/Home'
 import Contactos from '../page/Contactos'
+import Redes from '../page/Redes'
 
 const Routing = () => {
   return (
@@ -12,6 +13,7 @@ const Routing = () => {
            <Route index element={<Home/>} />
         <Route path='quienes-somos' element={<QuienesSomos/>}/>
         <Route path='contactos' element={<Contactos/>}/>
+        <Route path='redes' element={<Redes/>}/>
         </Route>
 
     </Routes>

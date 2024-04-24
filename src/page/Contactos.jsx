@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Contactos = () => {
   return (
@@ -7,7 +8,7 @@ const Contactos = () => {
         <h1 className="text-4xl text-center font-black  ">Contactos</h1>
 
         <div className="w-4/5 flex flex-col  gap-6">
-          <div className="flex flex-row  gap-6">
+          <div  className="flex flex-row  gap-6">
             <box-icon name="phone" type="solid" size="lg"></box-icon>
 
             <div className="">
@@ -16,7 +17,10 @@ const Contactos = () => {
             </div>
           </div>
 
-          <div className="flex flex-row  gap-6 items-center">
+          <Link 
+          to="https://api.whatsapp.com/send?phone=3117164854" 
+          target="_blank"
+          className="flex flex-row  gap-6 items-center">
             <div className="rounded-full bg-green-600 w-13 h-12 ">
               <box-icon
                 name="whatsapp"
@@ -27,27 +31,40 @@ const Contactos = () => {
             </div>
 
             <p className="font-black">3117164854</p>
-          </div>
-          <div className="flex flex-row  gap-6 items-center">
-           
+          </Link>
+       
+            <Link 
+            to="https://www.instagram.com/laterrazadelacasa/"
+            className="flex flex-row  gap-6 items-center"
+            target="_blank"
+            >
               <box-icon
                 name="instagram"
                 type="logo"
                 color="#c94002"
                 size="lg"
               ></box-icon>
-           
 
-            <p className="font-black">@laterrazadelacasa</p>
-          </div>
+              <p className="font-black">@laterrazadelacasa</p>
+            </Link>
+       
 
-          <div className="flex flex-row  gap-6 items-center ">
-           
-             <box-icon name='facebook-square' type='logo' color='#0e46e2' size='lg' ></box-icon>
-            
+         
+            <Link 
+            className="flex flex-row  gap-6 items-center"
+            to="https://www.facebook.com/laterrazadelacasa"
+            target="_blank"
+            >
+              <box-icon
+                name="facebook-square"
+                type="logo"
+                color="#0e46e2"
+                size="lg"
+              ></box-icon>
 
-            <p className="font-black ">La terraza de la casa</p>
-          </div>
+              <p className="font-black ">La terraza de la casa</p>
+            </Link>
+          
         </div>
       </div>
     </div>

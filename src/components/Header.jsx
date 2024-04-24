@@ -23,10 +23,10 @@ const Header = () => {
                     <Link to="/" className='text-2xl text-orange-400 font-black mx-5 hover:text-orange-800 transition-all ease-in-out duration-300'>Menú</Link>
                 </li>
                 <li>
-                    <Link to="#" className='text-2xl text-orange-400 font-black mx-5 hover:text-orange-800 transition-all ease-in-out duration-300'>Tiendas</Link>
+                    <Link to="/contactos" className='text-2xl text-orange-400 font-black mx-5 hover:text-orange-800 transition-all ease-in-out duration-300'>contactos</Link>
                 </li>
                 <li>
-                    <Link to="#" className='text-2xl text-orange-400 font-black mx-5 hover:text-orange-800 transition-all ease-in-out duration-300'>Favoritos</Link>
+                    <Link to="/redes" className='text-2xl text-orange-400 font-black mx-5 hover:text-orange-800 transition-all ease-in-out duration-300'>Redes</Link>
                 </li>
             </ul>
         </div>
@@ -73,16 +73,16 @@ const Header = () => {
                     >Menú</Link>
                 </li>
                 <li>
-                    <Link to="#" 
+                    <Link to="/contactos" 
                     className='text-2xl text-orange-400 font-black mx-5 hover:text-orange-800 transition-all ease-in-out duration-300'
                     onClick={()=> setOpen(false)}
-                    >Tiendas</Link>
+                    >Contactos</Link>
                 </li>
                 <li>
                     <Link to="#" 
                     className='text-2xl text-orange-400 font-black mx-5 hover:text-orange-800 transition-all ease-in-out duration-300'
                     onClick={()=> setOpen(false)}
-                    >Favoritos</Link>
+                    >Redes</Link>
                 </li>
             </ul>
             </div>

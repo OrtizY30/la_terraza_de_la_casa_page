@@ -36,15 +36,11 @@ const Footer = () => {
 
       
         <div className="flex gap-3 ">
-          <Link href="">
+          <Link to="https://www.instagram.com/laterrazadelacasa/">
             <box-icon type="logo" color="#FB923C" size='lg' name="instagram"></box-icon>
           </Link>
 
-          <Link href="">
-            <box-icon type="logo" color="#FB923C" size='lg' name="whatsapp"></box-icon>
-          </Link>
-
-          <Link href="">
+          <Link to="https://www.facebook.com/laterrazadelacasa">
             <box-icon type="logo" color="#FB923C" size='lg' name="facebook"></box-icon>
           </Link>
         </div>
