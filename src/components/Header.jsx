@@ -7,9 +7,9 @@ const Header = () => {
   return (
     <header className=' fixed z-10 top-0 px-5 p-3 flex gap-8 items-center justify-between md:justify-start w-full bg-neutral-800/90 shadow-2xl shadow-black/70 md:bg-black/60 md:h-16
     backdrop-blur-sm  rounded-b-3xl'>
-        <div className='w-16 md:w-1/4'>
+        <Link to={'/'} className='w-16 md:w-1/4'>
             <img src={logo} width={80} alt="" />
-        </div>
+        </Link>
 
         <div className='hidden md:block' >
             <ul className='flex '>
@@ -20,7 +20,7 @@ const Header = () => {
                     <Link to="quienes-somos" className='text-2xl text-orange-400 font-black mx-5 hover:text-orange-800 transition-all ease-in-out duration-300'>¿Quienes somos?</Link>
                 </li>
                 <li>
-                    <Link to="/" className='text-2xl text-orange-400 font-black mx-5 hover:text-orange-800 transition-all ease-in-out duration-300'>Menú</Link>
+                    <Link to="/#menu" className='text-2xl text-orange-400 font-black mx-5 hover:text-orange-800 transition-all ease-in-out duration-300'>Menú</Link>
                 </li>
                 <li>
                     <Link to="/contactos" className='text-2xl text-orange-400 font-black mx-5 hover:text-orange-800 transition-all ease-in-out duration-300'>contactos</Link>

@@ -51,8 +51,10 @@ const QuienesSomos = () => {
       </div>
 
       <div className="max-w-7xl mx-auto flex justify-between ">
-        <p className="text-orange-500 font-bold text-xl md:text-4xl">La terraza de la casa - <span className="text-white"> Since 2002</span></p>
-       
+        <p className="text-orange-500 font-bold text-xl md:text-4xl">
+          La terraza de la casa -{" "}
+          <span className="text-white"> Since 2002</span>
+        </p>
       </div>
     </div>
   );

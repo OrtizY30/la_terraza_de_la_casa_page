@@ -7,8 +7,8 @@ const Contactos = () => {
       <div className="shadow-2xl w-96 shadow-black  mx-auto bg-orange-200/70 p-8 rounded-xl flex flex-col items-center space-y-8">
         <h1 className="text-4xl text-center font-black  ">Contactos</h1>
 
-        <div className="w-4/5 flex flex-col  gap-6">
-          <div  className="flex flex-row  gap-6">
+        <div className="w-4/5 flex flex-col items-start  gap-6 ">
+          <div  className="flex flex-row  gap-6 ">
             <box-icon name="phone" type="solid" size="lg"></box-icon>
 
             <div className="">
@@ -20,7 +20,7 @@ const Contactos = () => {
           <Link 
           to="https://api.whatsapp.com/send?phone=3117164854" 
           target="_blank"
-          className="flex flex-row  gap-6 items-center">
+          className="flex flex-row  gap-6 items-cente ">
             <div className="rounded-full bg-green-600 w-13 h-12 ">
               <box-icon
                 name="whatsapp"
@@ -35,7 +35,7 @@ const Contactos = () => {
        
             <Link 
             to="https://www.instagram.com/laterrazadelacasa/"
-            className="flex flex-row  gap-6 items-center"
+            className="flex flex-row  gap-6 items-center "
             target="_blank"
             >
               <box-icon
@@ -51,7 +51,7 @@ const Contactos = () => {
 
          
             <Link 
-            className="flex flex-row  gap-6 items-center"
+            className="flex flex-row gap-6 items-center "
             to="https://www.facebook.com/laterrazadelacasa"
             target="_blank"
             >
