@@ -3,7 +3,7 @@ import React from "react";
 const Redes = () => {
   return (
     <div className="p-3 mx-auto mt-4 max-w-5xl">
-      <p className="dark:text-white font-black mb-3">Siguenos en instagram</p>
+      <p className="dark:text-white font-black mb-3">Síguenos en instagram</p>
       <div className="h-[450px] sm:h-[650px] ">
         <iframe
           width="100%"

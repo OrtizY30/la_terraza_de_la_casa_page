@@ -1,12 +1,25 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Layout from "../components/Layout";
 import QuienesSomos from "../page/QuienesSomos";
 import Home from "../page/Home";
 import Contactos from "../page/Contactos";
 import Menu from "../page/Menu";
 import Favoritos from "../page/Favoritos";
+import { useEffect } from "react";
 
 const Routing = () => {
+  const location = useLocation()
+  useEffect(() => {
+    function scrollToTop() {
+      window.scroll({
+        top: 0,
+        behavior: "smooth", // Para hacer el scroll suavemente
+      });
+    }
+
+    scrollToTop();
+  }, [location]);
+  
   return (
     <Routes>
       <Route path="/" element={<Layout />}>

@@ -78,7 +78,7 @@ const Header = () => {
                 "hidden"
               }`}
             >
-              <img src={logo} width={60} alt="" />
+              <img src={logo} width={60} alt="logo la terraza de la casa" />
             </div>
           </>
         ) : (

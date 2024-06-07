@@ -25,6 +25,7 @@ export const CardMenu = ({ item, id }) => {
           key={id}
           src={img ? "/img/" + img : imagen}
           className=" w-24 h-20 object-cover rounded-lg shadow shadow-gray-400  "
+          alt="imagen representativa del menu"
         />
 
         <div className="flex-1 flex justify-between flex-col h-full w-full">
@@ -58,6 +59,7 @@ export const CardMenu = ({ item, id }) => {
                   className="w-full md:max-w-sm rounded-t-md shadow-lg bg-contain shadow-gray-400/40"
                   key={id}
                   src={img ? "/img/" + img : imagen}
+                  alt="imagen representativa del menu"
                 />
                 <motion.button
                   className=""

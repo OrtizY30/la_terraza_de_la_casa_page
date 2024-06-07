@@ -5,9 +5,8 @@ const Contactos = () => {
   return (
     <div className=" max-w-5xl mx-auto flex items-center justify-center">
       <div className=" w-[450px] mx-auto mt-16  p-10 flex flex-col items-center space-y-8 dark:text-white font-black">
-        <h1 className="text-4xl text-center font-black">Contactos</h1>
 
-        <div className="w-full flex flex-col items-start gap-6 ">
+        <div className="w-full flex flex-col items-start gap-6 mt-6 ">
           <div className="flex flex-row  gap-6 ">
             <i className="fa-solid fa-phone  text-4xl"></i>
 

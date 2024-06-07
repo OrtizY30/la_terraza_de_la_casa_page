@@ -33,7 +33,7 @@ const Home = () => {
           <div className="mx-3 flex items-center gap-2 z-[1">
             <i className="fa-sharp fa-solid fa-star text-yellow-300 text-2xl"></i>
             <h1 className="text-2xl font-black text-customRed capitalize">
-              los platos mas pedidos
+              los platos más pedidos
             </h1>
           </div>
 
