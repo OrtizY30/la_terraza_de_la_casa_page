@@ -24,6 +24,11 @@ const Home = () => {
         </div>
         <img
           src={bannerHome}
+          sizes="(max-width: 320px) 280px, 
+         (max-width: 640px) 600px, 
+         (max-width: 1280px) 1200px,
+         1920px"
+         loading="lazy"
           alt="banner terraza de la casa"
           className="absolute w-full z-[-1] object-cover bg-bottom top-10 lg:-top-60"
         />

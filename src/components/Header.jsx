@@ -78,7 +78,16 @@ const Header = () => {
                 "hidden"
               }`}
             >
-              <img src={logo} width={60} alt="logo la terraza de la casa" />
+              <img
+                src={logo}
+                sizes="(max-width: 320px) 280px, 
+               (max-width: 640px) 600px, 
+               (max-width: 1280px) 1200px,
+               1920px"
+                loading="lazy"
+                width={60}
+                alt="logo la terraza de la casa"
+              />
             </div>
           </>
         ) : (
@@ -150,7 +159,6 @@ const Header = () => {
         </div>
         <div className="px-8 gap-16 h-screen bg-customDark flex items-center flex-col justify-evenly -mt-10">
           <div className="h-[420px] max-w-4xl w-full bg-headerDarck shadow-xl p-4 shadow-gray-700 space-y-5 flex flex-col justify-between">
-
             <Link
               to={
                 "https://api.whatsapp.com/send?phone=3117164854&text=Hola%2C%20deseo%20hacer%20pedido%20a%20domicilio."
@@ -233,7 +241,7 @@ const Header = () => {
               </div>
             </div>
           </div>
-        <PowerBy/>
+          <PowerBy />
         </div>
       </div>
     </header>

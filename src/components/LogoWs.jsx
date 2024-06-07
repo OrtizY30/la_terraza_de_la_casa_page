@@ -17,7 +17,17 @@ const LogoWs = () => {
         target="_blank"
         className="flex items-center relative "
       >
-        <img src={logoWs} alt="logo wsapp" width={130} className="z-10" />
+        <img
+          src={logoWs}
+          sizes="(max-width: 320px) 280px, 
+         (max-width: 640px) 600px, 
+         (max-width: 1280px) 1200px,
+         1920px"
+          loading="lazy"
+          alt="logo wsapp"
+          width={130}
+          className="z-10"
+        />
         <p
           className={`text-xs absolute overflow-hidden  text-white font-bold rounded-full shadow-sm bg-green-500 flex items-center  text-nowrap left-10  ${
             alert ? "py-2 pr-5 pl-14 w-auto" : "left-0 w-0 py-0 pr-0 pl-0 h-0"

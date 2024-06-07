@@ -24,6 +24,11 @@ export const CardMenu = ({ item, id }) => {
         <motion.img
           key={id}
           src={img ? "/img/" + img : imagen}
+          sizes="(max-width: 320px) 280px, 
+          (max-width: 640px) 600px, 
+          (max-width: 1280px) 1200px,
+          1920px"
+          loading="lazy"
           className=" w-24 h-20 object-cover rounded-lg shadow shadow-gray-400  "
           alt="imagen representativa del menu"
         />
@@ -56,9 +61,14 @@ export const CardMenu = ({ item, id }) => {
             <motion.div className="bg-white rounded-md w-full mx-2 relative flex flex-col items-center gap-5 sm:max-w-sm  pb-6 dark:bg-customDark  ">
               <div className="relative">
                 <motion.img
+                  src={img ? "/img/" + img : imagen}
+                  sizes="(max-width: 320px) 280px, 
+                  (max-width: 640px) 600px, 
+                  (max-width: 1280px) 1200px,
+                  1920px"
+                  loading="lazy"
                   className="w-full md:max-w-sm rounded-t-md shadow-lg bg-contain shadow-gray-400/40"
                   key={id}
-                  src={img ? "/img/" + img : imagen}
                   alt="imagen representativa del menu"
                 />
                 <motion.button
