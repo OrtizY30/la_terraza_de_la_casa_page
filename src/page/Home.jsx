@@ -1,54 +1,60 @@
-import React from "react";
-import Menu from "./Menu";
+import React, { useContext } from "react";
+import bannerHome from "/img/cubanopollo.avif";
+import { CardMenu } from "../components/CardMenu";
+import { AppContext } from "../context/AppContext";
 import { Link } from "react-router-dom";
+import Redes from "../components/Redes";
 
 const Home = () => {
+  const { data } = useContext(AppContext);
+  const menu = data.filter((item) => item.principal);
+
   return (
-    <>
-      <div className="h-screen home  max-w-7xl mx-auto">
-        <div className=" flex flex-col justify-center items-center h-full space-y-10 ">
-          <div className="w-3/4 mx-auto flex items-center justify-center">
-            <img
-              src="/img/logo.png"
-              width={200}
-              className="imgFotter"
-              alt="logo"
-            />
-            {/* 
-          <p className="text-orange-100 text-2xl md:text-5xl text-center font-medium textHome">
-          22 Años de tradición
-          </p> */}
-          </div>
-
-          <div className="flex flex-col  gap-4 items-center">
-            <p className="text-white cursor-pointer font-black hover:text-orange-500">
-              ¿Deseas pedir a domicilio o reservar?, pulsa aqui
+    <div className="relative">
+      <div className="relative h-[254px] md:h-[450px] pt-16  bg-origin-content w-full bg-cover bg-bottom bg-fixed overflow-hidden">
+        <div className="bg-black/40 h-full  w-full flex items-start justify-center flex-col p-10">
+          <div className="">
+            <p className="text-4xl md:text-7xl lg:text-8xl text-white font-extrabold">
+              Bienvenido a La <br /> Terraza de la Casa
             </p>
-
-            <box-icon
-              name="down-arrow-alt"
-              animation="flashing"
-              color="#ee7009"
-              size="lg"
-            ></box-icon>
-
-            <Link to="/contactos">
-              <button className="bg-orange-400 uppercase font-bold text-white p-2 w-28 rounded-lg hover:bg-orange-600 hover:text-white transition-all ease-in-out duration-500">
-                contactos
-              </button>
-            </Link>
-
-            <a href="#menu">
-              <button className="bg-orange-400 uppercase font-bold text-white p-2 w-28 rounded-lg hover:bg-orange-600 hover:text-white transition-all ease-in-out duration-500">
-                menú
-              </button>
-            </a>
+            <p className=" text-gray-200 font-black md:text-2xl">
+              Since - 2002
+            </p>
           </div>
+        </div>
+        <img
+          src={bannerHome}
+          alt="banner terraza de la casa"
+          className="absolute w-full z-[-1] object-cover bg-bottom top-10 lg:-top-60"
+        />
+      </div>
+      <div className=" max-w-5xl pt-5 bg-white   mx-auto relative dark:bg-customDark">
+        <div className=" ">
+          <div className="mx-3 flex items-center gap-2 z-[1">
+            <i className="fa-sharp fa-solid fa-star text-yellow-300 text-2xl"></i>
+            <h1 className="text-2xl font-black text-customRed capitalize">
+              los platos mas pedidos
+            </h1>
+          </div>
+
+          <section className="grid grid-cols-1 md:grid-cols-2 md:m-8 ">
+            {menu.map((item, i) => (
+              <CardMenu key={i} item={item} />
+            ))}
+          </section>
         </div>
       </div>
 
-      <Menu />
-    </>
+      <div className="w-full p-3 pt-6">
+        <Link to={"/menu/todos"}>
+          <button className="w-full rounded-md p-1 uppercase font-black text-white bg-customRed hover:bg-red-500 transition-all duration-300">
+            Ver carta completa
+          </button>
+        </Link>
+      </div>
+
+      <Redes />
+    </div>
   );
 };
 

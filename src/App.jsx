@@ -1,12 +1,13 @@
 import { BrowserRouter } from "react-router-dom";
-import Layout from "./components/Layout";
 import Routing from "./routes/Routing";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Routing />
-    </BrowserRouter>
+    <div className="dark:bg-customDark relative z-[1]">
+      <BrowserRouter>
+        <Routing />
+      </BrowserRouter>
+    </div>
   );
 }
 

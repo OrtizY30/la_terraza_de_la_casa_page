@@ -3,68 +3,76 @@ import { Link } from "react-router-dom";
 
 const Contactos = () => {
   return (
-    <div className="h-screen  max-w-7xl mx-auto flex items-center justify-center">
-      <div className="shadow-2xl w-96 shadow-black  mx-auto bg-orange-200/70 p-8 rounded-xl flex flex-col items-center space-y-8">
-        <h1 className="text-4xl text-center font-black  ">Contactos</h1>
+    <div className=" max-w-5xl mx-auto flex items-center justify-center">
+      <div className=" w-[450px] mx-auto mt-16  p-10 flex flex-col items-center space-y-8 dark:text-white font-black">
+        <h1 className="text-4xl text-center font-black">Contactos</h1>
 
-        <div className="w-4/5 flex flex-col items-start  gap-6 ">
-          <div  className="flex flex-row  gap-6 ">
-            <box-icon name="phone" type="solid" size="lg"></box-icon>
+        <div className="w-full flex flex-col items-start gap-6 ">
+          <div className="flex flex-row  gap-6 ">
+            <i className="fa-solid fa-phone  text-4xl"></i>
 
-            <div className="">
+            <div className="hover:text-blue-700 cursor-pointer">
               <p className="font-black">3571992</p>
               <p className="font-black">3552721</p>
             </div>
           </div>
 
-          <Link 
-          to="https://api.whatsapp.com/send?phone=3117164854" 
-          target="_blank"
-          className="flex flex-row  gap-6 items-cente ">
-            <div className="rounded-full bg-green-600 w-13 h-12 ">
-              <box-icon
-                name="whatsapp"
-                type="logo"
-                color="#f8f8f8"
-                size="lg"
-              ></box-icon>
-            </div>
+          <Link
+            to="https://api.whatsapp.com/send?phone=3117164854"
+            target="_blank"
+            className="flex flex-row gap-6 items-center "
+          >
+            <i
+              aria-hidden="true"
+              className="v-icon notranslate linktree fa fa-brands fa-whatsapp text-4xl text-green-500"
+            ></i>
 
-            <p className="font-black">3117164854</p>
+            <p className="font-black hover:text-blue-700">3117164854</p>
           </Link>
-       
-            <Link 
+
+          <Link
             to="https://www.instagram.com/laterrazadelacasa/"
             className="flex flex-row  gap-6 items-center "
             target="_blank"
-            >
-              <box-icon
-                name="instagram"
-                type="logo"
-                color="#c94002"
-                size="lg"
-              ></box-icon>
+          >
+            <i
+              aria-hidden="true"
+              className="v-icon notranslate linktree fa fa-brands fa-instagram text-4xl text-orange-400"
+            ></i>
 
-              <p className="font-black">@laterrazadelacasa</p>
-            </Link>
-       
+            <p className="font-black hover:text-blue-700">@laterrazadelacasa</p>
+          </Link>
 
-         
-            <Link 
+          <Link
             className="flex flex-row gap-6 items-center "
             to="https://www.facebook.com/laterrazadelacasa"
             target="_blank"
-            >
-              <box-icon
-                name="facebook-square"
-                type="logo"
-                color="#0e46e2"
-                size="lg"
-              ></box-icon>
+          >
+            <i
+              aria-hidden="true"
+              className="v-icon notranslate linktree fa fa-brands fa-facebook  text-4xl text-blue-700"
+            ></i>
 
-              <p className="font-black ">La terraza de la casa</p>
-            </Link>
-          
+            <p className="font-black hover:text-blue-700 ">
+              La terraza de la casa
+            </p>
+          </Link>
+        </div>
+
+        <div className="w-full font-black ">
+          <p>¿Cómo llegar?</p>
+
+          <div className="h-72 mt-3 w-full">
+          <iframe
+          title="myFrame"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.4043967560365!2d-74.82055532559968!3d11.008254854876084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef42daf05767d91%3A0xb05c0012df9a3447!2sLa%20Terraza%20de%20la%20Casa!5e0!3m2!1ses!2sco!4v1713828370962!5m2!1ses!2sco"
+          width="100%"
+          height="100%"
+          style={{ borderRadius: 4  }}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+        ></iframe>
+          </div>
         </div>
       </div>
     </div>
