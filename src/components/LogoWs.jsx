@@ -13,7 +13,7 @@ const LogoWs = () => {
   return (
     <div className=" flex sticky bottom-16 cursor-pointer z-50 w-32 ">
       <Link
-        to="https://api.whatsapp.com/send?phone=3117164854&text=Hola%2C%20deseo%realizar%20un%20pedido%20."
+        to="https://api.whatsapp.com/send?phone=3117164854&text=Hola%20deseo%realizar%20un%20pedido%20."
         target="_blank"
         className="flex items-center relative "
       >
