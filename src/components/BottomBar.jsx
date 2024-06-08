@@ -75,8 +75,8 @@ const BottomBar = () => {
               <p
                 className={`text-sm font-bold capitalize transition-all duration-300 ${
                   location.pathname === "/" + icon.name
-                    ? " text-customRed scale-110"
-                    : "text-black dark:text-white"
+                    ? " text-customRed scale-105"
+                    : " dark:text-white"
                 }`}
               >
                 {icon.name}

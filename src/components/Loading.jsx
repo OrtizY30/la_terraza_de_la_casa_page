@@ -9,6 +9,10 @@ const Loading = () => {
           src={logo}
           width={200}
           loading="lazy"
+          sizes="(max-width: 320px) 280px, 
+         (max-width: 640px) 600px, 
+         (max-width: 1280px) 1200px,
+         1920px"
           alt="logo la terraza de la casa"
           className="imgFotter"
         />
