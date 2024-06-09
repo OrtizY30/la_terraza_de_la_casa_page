@@ -1,7 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import { MenuCompleto } from "../data/db";
 import useFirestore from "../hooks/useFirestore";
-// import useFirestore from "../hooks/useFirestore";
 
 export const AppContext = createContext();
 
@@ -9,7 +7,6 @@ export const AppContextProvider = ({ children }) => {
   const [fav, setFav] = useState(
     JSON.parse(localStorage.getItem("favoritos")) || []
   );
-  // localStorage.removeItem('menu')
 
   const togleFav = (product) => {
     // Obtener los productos favoritos del localStorage

@@ -3,7 +3,7 @@ import logo from "/img/logo.webp";
 
 const Loading = () => {
   return (
-    <div className="h-screen flex flex-col justify-center items-center w-full bg-customDark">
+    <div className="h-screen absolute top-0 bottom-0 z-10 flex flex-col justify-center items-center w-full bg-customDark">
       <div className="space-y-4">
         <img
           src={logo}

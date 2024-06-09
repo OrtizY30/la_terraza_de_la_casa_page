@@ -13,7 +13,7 @@ const LogoWs = () => {
   return (
     <div className=" flex sticky bottom-16 cursor-pointer z-50 w-32 ">
       <Link
-        to="https://api.whatsapp.com/send?phone=3117164854&text=Hola%20deseo%20realizar%20un%20pedido."
+        to="https://api.whatsapp.com/send?phone=3117164854&text=Hola,%20deseo%20realizar%20un%20pedido."
         target="_blank"
         className="flex items-center relative "
       >
@@ -29,7 +29,7 @@ const LogoWs = () => {
           className="z-10"
         />
         <p
-          className={`text-xs absolute overflow-hidden  text-white font-bold rounded-full shadow-sm bg-green-500 flex items-center  text-nowrap left-10  ${
+          className={`text-xs absolute overflow-hidden text-white font-bold rounded-full shadow-sm bg-green-500 flex items-center  text-nowrap left-10  ${
             alert ? "py-2 pr-5 pl-14 w-auto" : "left-0 w-0 py-0 pr-0 pl-0 h-0"
           } transition-all ease-in-out`}
         >

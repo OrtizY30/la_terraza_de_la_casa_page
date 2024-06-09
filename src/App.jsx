@@ -10,7 +10,6 @@ function App() {
     <div className="dark:bg-customDark relative z-[1]">
       <BrowserRouter>
       {data.length == 0 ? <Loading/>  : <Routing /> }
-        
       </BrowserRouter>
     </div>
   );

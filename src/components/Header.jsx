@@ -43,7 +43,7 @@ const Header = () => {
 
   return (
     <header
-      className="w-full fixed z-10 top-0 bg-[#fbfbfb] shadow shadow-gray-300  md:rounded-none h-16
+      className="w-full fixed z-10 top-0 bg-[#fbfbfb]   md:rounded-none h-16
     backdrop-blur-sm  rounded-b-xl dark:bg-headerDarck"
     >
       <div className="w-full flex h-full pl-2 justify-between items-center">

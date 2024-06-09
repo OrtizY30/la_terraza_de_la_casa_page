@@ -12,10 +12,10 @@ const Home = () => {
   return (
     <div className="relative">
       <div className="relative h-[254px] md:h-[450px] pt-16  bg-origin-content w-full bg-cover bg-bottom bg-fixed overflow-hidden">
-        <div className="bg-black/40 h-full  w-full flex items-start justify-center flex-col p-10">
-          <div className="">
+        <div className="bg-black/40 h-full w-full flex items-start justify-center flex-col p-10 px-6">
+          <div className="w-full md:max-w-5xl mx-auto">
             <p className="text-4xl md:text-7xl lg:text-8xl text-white font-extrabold">
-              Bienvenido a La <br /> Terraza de la Casa
+              Bienvenido a <br /> La Terraza de la Casa
             </p>
             <p className=" text-gray-200 font-black md:text-2xl">
               Since - 2002
@@ -28,7 +28,7 @@ const Home = () => {
          (max-width: 640px) 600px, 
          (max-width: 1280px) 1200px,
          1920px"
-         loading="lazy"
+          loading="lazy"
           alt="banner terraza de la casa"
           className="absolute w-full z-[-1] object-cover bg-bottom top-10 lg:-top-60"
         />
@@ -41,6 +41,20 @@ const Home = () => {
               los platos más pedidos
             </h1>
           </div>
+          {/* {data.length == 0 ? (
+            <>
+          <Skeleton/>
+          <Skeleton/>
+          <Skeleton/>
+          <Skeleton/>
+            </>
+        )   : (
+            <section className="grid grid-cols-1 md:grid-cols-2 md:m-8 ">
+            {menu.map((item, i) => (
+              <CardMenu key={i} item={item} />
+            ))}
+          </section>
+          ) } */}
 
           <section className="grid grid-cols-1 md:grid-cols-2 md:m-8 ">
             {menu.map((item, i) => (
