@@ -17,7 +17,7 @@ const MenuOtro = ({ param }) => {
         </h1>
         {path && (
           <p className=" text-xs mt-2 text-center dark:text-gray-300">
-            Todos nuestros sándwiches son el elegibles en el pan que desee
+            Todos nuestros sandwiches son el elegibles en el pan que desee
             (Gluten, Molde, Frances, Quinua)
           </p>
         )}

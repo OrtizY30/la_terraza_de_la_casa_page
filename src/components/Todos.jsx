@@ -11,9 +11,6 @@ const Todos = () => {
   const menuEnsaladas = data.filter((item) => item.categoria === "ensaladas");
   const menuHamburguesas = data.filter((item) => item.categoria === "burgers");
   const menuPlanchitas = data.filter((item) => item.categoria === "planchitas");
-  const menuTerrazaKit = data.filter(
-    (item) => item.categoria === "terraza Kids"
-  );
 
   return (
     <>
@@ -34,11 +31,11 @@ const Todos = () => {
 
         <div className=" p-4 mx-3">
           <h1 className="  text-center text-5xl font-bold text-customRed ">
-            Sándwich
+            Sandwich
           </h1>
 
           <p className=" text-xs text-center dark:text-gray-300">
-            Todos nuestros sándwiches son el elegibles en el pan que desee
+            Todos nuestros sandwiches son el elegibles en el pan que desee
             (Gluten, Molde, Frances, Quinua)
           </p>
         </div>
@@ -52,11 +49,11 @@ const Todos = () => {
 
         <div className=" p-4 mx-3">
           <h1 className="  text-center text-5xl font-bold text-customRed ">
-            Sándwich Gourmet
+            Sandwich Gourmet
           </h1>
 
           <p className=" text-xs text-center dark:text-gray-300">
-            Todos nuestros sándwiches son el elegibles en el pan que desee
+            Todos nuestros sandwiches son el elegibles en el pan que desee
             (Gluten, Molde, Frances, Quinua)
           </p>
         </div>
