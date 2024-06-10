@@ -11,6 +11,9 @@ const Todos = () => {
   const menuEnsaladas = data.filter((item) => item.categoria === "ensaladas");
   const menuHamburguesas = data.filter((item) => item.categoria === "burgers");
   const menuPlanchitas = data.filter((item) => item.categoria === "planchitas");
+  const menuTerrazaKids = data.filter(
+    (item) => item.categoria === "terraza Kids"
+  );
 
   return (
     <>
@@ -109,7 +112,7 @@ const Todos = () => {
         </div>
 
         <section className="grid grid-cols-1 md:grid-cols-2 md:m-8">
-          {menuTerrazaKit.map((item, i) => (
+          {menuTerrazaKids.map((item, i) => (
             <CardMenu key={i} id={i} item={item} />
           ))}
         </section>
