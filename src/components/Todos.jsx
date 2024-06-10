@@ -107,7 +107,7 @@ const Todos = () => {
         {/* Seccion de menu de terraza kit */}
         <div className=" p-4 mx-3">
           <h1 className="  text-center text-5xl font-bold text-customRed ">
-            Terraza Kits
+            Terraza Kids
           </h1>
         </div>
 
