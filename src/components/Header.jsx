@@ -73,7 +73,7 @@ const Header = () => {
                 {location.pathname === "/contactos" ? "Contactos" : ""}
               </p>
               <p className="font-extrabold capitalize text-xl dark:text-white ">
-                {location.pathname === "/pedido" && "Mi Pedido" }
+                {location.pathname === "/pedido" && "Mi Pedido"}
               </p>
             </div>
             <div
@@ -98,16 +98,12 @@ const Header = () => {
         ) : (
           <div className="flex items-center gap-3">
             <Link to={"/inicio"} className="ml-2">
-             
-              <i class="fa-solid fa-arrow-left"
-              className="fa-solid fa-arrow-left text-2xl transition-all duration-100 hover:scale-105 dark:text-white"
-              ></i>
+              <i className="fa-solid fa-arrow-left text-2xl transition-all duration-100 hover:scale-105 dark:text-white"></i>
             </Link>
 
             <p className="font-extrabold capitalize text-xl dark:text-white ">
-              {!path && <p className="ml-3">Menú</p>}
+              {!path && <span className="ml-3">Menú</span>}
             </p>
-            
           </div>
         )}
 

@@ -80,7 +80,7 @@ const ModalOrder = ({ setShowModaOrder }) => {
           item.pan ? `\n\nPan: *${capitalizeFirstLetter(item.pan)}*` : ""
         }${
           item.adicionales.length > 0
-            ? `\n\nAdicionales:\n*${adicionalesTexto}*`
+            ? `\n\nAdicionales:\n* ${adicionalesTexto}`
             : ""
         }${
           item.observacion
@@ -100,7 +100,7 @@ const ModalOrder = ({ setShowModaOrder }) => {
       calcularTotalCarrito(carrito)
     )}*\n\n*El valor del total a pagar no incluye el costo del domicilio.* `;
 
-    const phoneNumber = "3015879165"; // Reemplaza con el número de teléfono del restaurante en formato internacional
+    const phoneNumber = "3117164854"; // Reemplaza con el número de teléfono del restaurante en formato internacional
     const whatsappLink = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
       message
     )}`;

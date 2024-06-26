@@ -133,7 +133,13 @@ const ModalOptions = ({ item, handleModal, handleClose, open }) => {
         setError("");
       }, 3000);
       return;
-    } else if (isValidBebida && pedido.opcion === "") {
+    } else if (
+      isValidBebida &&
+      pedido.opcion === "" &&
+      item.nombre !== "agua 600ml" &&
+      item.nombre !== "bretaña" &&
+      item.nombre !== "mr tea"
+    ) {
       setError({
         alert: "error",
         message: "Selecciona una opción",
@@ -239,7 +245,7 @@ const ModalOptions = ({ item, handleModal, handleClose, open }) => {
             item.nombre !== "cochinito" &&
             item.nombre !== "montecristo" &&
             item.nombre !== "sandwich combinado (PAN MOLDE)" ? (
-              <div className="mt-6 px-4 max-w-md mx-auto">
+              <div className="mt-6 px-2 max-w-md mx-auto">
                 <p className="font-bold dark:text-white ml-3">
                   Elige un Tipo de pan :
                 </p>
@@ -317,12 +323,12 @@ const ModalOptions = ({ item, handleModal, handleClose, open }) => {
             )}
           </div>
 
-          <div>
+          <div className="">
             {(item.categoria === "sandwich" ||
               item.categoria === "ensaladas" ||
               item.categoria === "gourmet") &&
             item.nombre !== "cochinito" ? (
-              <div className="flex flex-col gap-2 px-4">
+              <div className="mt-6 px-2 max-w-md mx-auto">
                 <p className="font-bold p-3">Tamaño:</p>
                 {item.tamaño.map((option, index) => (
                   <label
@@ -358,9 +364,9 @@ const ModalOptions = ({ item, handleModal, handleClose, open }) => {
               item.categoria === "gourmet") &&
             item.nombre !== "cochinito" &&
             item.nombre !== "montecristo" ? (
-              <div className=" ">
+              <div className="mx-2 rounded-lg ">
                 <Accordion
-                  className="dark:bg-customDark"
+                  className="dark:bg-customDark "
                   expanded={expanded}
                   onChange={handleExpansion}
                   slots={{ transition: Fade }}
@@ -371,14 +377,17 @@ const ModalOptions = ({ item, handleModal, handleClose, open }) => {
                       display: expanded ? "block" : "none",
                     },
                     "& .MuiPaper-root": { boxShadow: "none" },
+                    borderTopRightRadius: 4,
                   }}
                 >
                   <AccordionSummary
                     expandIcon={<ExpandMore className="dark:text-white" />}
                     aria-controls="panel1-content"
                     id="panel1-header"
+                    className="dark:bg-gray-600 rounded-lg"
+                    sx={{ borderRadius: 2 }}
                   >
-                    <p className="font-bold dark:text-white ml-3">
+                    <p className="font-bold  dark:text-white ml-3">
                       Adicionales:
                     </p>
                   </AccordionSummary>
@@ -419,8 +428,11 @@ const ModalOptions = ({ item, handleModal, handleClose, open }) => {
           {/* Opciones para bebidas */}
 
           <div>
-            {item.categoria === "bebidas" ? (
-              <div className="flex flex-col gap-2">
+            {item.categoria === "bebidas" &&
+            item.nombre !== "agua 600ml" &&
+            item.nombre !== "bretaña" &&
+            item.nombre !== "mr tea" ? (
+              <div className="flex flex-col gap-2 mx-2">
                 <Accordion
                   className="dark:bg-customDark"
                   expanded={expanded}
@@ -439,6 +451,8 @@ const ModalOptions = ({ item, handleModal, handleClose, open }) => {
                     expandIcon={<ExpandMore className="dark:text-white" />}
                     aria-controls="panel1-content"
                     id="panel1-header"
+                    sx={{ borderRadius: 2 }}
+                    className="dark:bg-gray-600 rounded-lg"
                   >
                     <p className="font-bold dark:text-white">
                       Elige una opción:{" "}
