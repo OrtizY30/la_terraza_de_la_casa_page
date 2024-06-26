@@ -65,7 +65,7 @@ const ModalOrder = ({ setShowModaOrder }) => {
             ? adicionales
                 .map(
                   (ad) =>
-                    `- ${capitalizeFirstLetter(ad.adicion)} - ${formatCurrency(
+                    `${capitalizeFirstLetter(ad.adicion)} - ${formatCurrency(
                       ad.precio
                     )}`
                 )
