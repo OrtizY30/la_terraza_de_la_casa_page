@@ -9,10 +9,10 @@ const Layout = () => {
     <div className="relative">
       <Header />
       <div
-        className="bg-fixed min-h-screen overflow-hidden relative w-full bg-cover bg-top -mb-20"
+        className=" min-h-screen overflow-hidden relative w-full -mb-10"
         // style={{ backgroundImage: `url(${fondo})` }}
       >
-        <div className="w-full min-h-[70vh]  relative pb-10">
+        <div className="w-full min-h-[70vh] relative pb-10">
           <Outlet />
         </div>
         <div className="absolute bottom-0 w-full">

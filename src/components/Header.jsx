@@ -30,6 +30,7 @@ const Header = () => {
     location.pathname === "/" ||
     location.pathname === "/inicio" ||
     location.pathname === "/favoritos" ||
+    location.pathname === "/pedido" ||
     location.pathname === "/contactos";
 
   const [anchorEl, setAnchorEl] = useState(null);
@@ -61,14 +62,18 @@ const Header = () => {
               className={`${
                 location.pathname !== "/favoritos" &&
                 location.pathname !== "/contactos" &&
+                location.pathname !== "/pedido" &&
                 "hidden"
               }`}
             >
               <p className="font-extrabold capitalize text-xl dark:text-white ">
-                {location.pathname === "/favoritos" && "Mis Favoritos"}
+                {location.pathname === "/favoritos" && "Favoritos"}
               </p>
               <p className="font-extrabold capitalize text-xl dark:text-white ">
                 {location.pathname === "/contactos" ? "Contactos" : ""}
+              </p>
+              <p className="font-extrabold capitalize text-xl dark:text-white ">
+                {location.pathname === "/pedido" && "Mi Pedido" }
               </p>
             </div>
             <div
@@ -93,13 +98,16 @@ const Header = () => {
         ) : (
           <div className="flex items-center gap-3">
             <Link to={"/inicio"} className="ml-2">
-              <i className="fa-sharp fa-solid fa-chevron-left text-2xl transition-all duration-100 hover:scale-105 dark:text-white"></i>
+             
+              <i class="fa-solid fa-arrow-left"
+              className="fa-solid fa-arrow-left text-2xl transition-all duration-100 hover:scale-105 dark:text-white"
+              ></i>
             </Link>
 
             <p className="font-extrabold capitalize text-xl dark:text-white ">
-              {!path && <p>Menú</p>}
-              {path === "/favorito" && <p>Mis Favoritos</p>}
+              {!path && <p className="ml-3">Menú</p>}
             </p>
+            
           </div>
         )}
 

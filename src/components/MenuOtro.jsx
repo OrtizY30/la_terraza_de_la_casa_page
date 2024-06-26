@@ -4,13 +4,12 @@ import imgComida from "/img/logo.webp";
 import { AppContext } from "../context/AppContext";
 
 const MenuOtro = ({ param }) => {
-  const { data } = useContext(AppContext);
+  const { data, fixed } = useContext(AppContext);
   const path = param === "sandwich" || param === "gourmet";
-
   const menu = data.filter((item) => item.categoria === param);
 
   return (
-    <div className="max-w-5xl mt-28 mx-auto">
+    <div className="max-w-5xl mt-28 mx-auto ">
       <div className=" mx-3">
         <h1 className="  text-center text-5xl capitalize font-bold text-customRed">
           {param}

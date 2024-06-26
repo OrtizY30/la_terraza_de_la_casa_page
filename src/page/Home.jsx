@@ -6,11 +6,11 @@ import { Link } from "react-router-dom";
 import Redes from "../components/Redes";
 
 const Home = () => {
-  const { data } = useContext(AppContext);
+  const { data, fixed } = useContext(AppContext);
   const menu = data.filter((item) => item.principal);
 
   return (
-    <div className="relative">
+    <div className={`relative ${fixed && 'overflow-hidden h-[40vh]'}`}>
       <div className="relative h-[254px] md:h-[450px] pt-16  bg-origin-content w-full bg-cover bg-bottom bg-fixed overflow-hidden">
         <div className="bg-black/40 h-full w-full flex items-start justify-center flex-col p-10 px-6">
           <div className="w-full md:max-w-5xl mx-auto">
@@ -41,20 +41,6 @@ const Home = () => {
               los platos más pedidos
             </h1>
           </div>
-          {/* {data.length == 0 ? (
-            <>
-          <Skeleton/>
-          <Skeleton/>
-          <Skeleton/>
-          <Skeleton/>
-            </>
-        )   : (
-            <section className="grid grid-cols-1 md:grid-cols-2 md:m-8 ">
-            {menu.map((item, i) => (
-              <CardMenu key={i} item={item} />
-            ))}
-          </section>
-          ) } */}
 
           <section className="grid grid-cols-1 md:grid-cols-2 md:m-8 ">
             {menu.map((item, i) => (

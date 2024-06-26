@@ -19,8 +19,8 @@ const Menu = ({ setOpcion }) => {
     <>
       {loading ? (
         <Loading />
-      // <Skeleton/>
       ) : (
+        // <Skeleton/>
         <div className=" w-full shadow mx-auto pt-8 relative flex md:flex-col">
           <Categories param={param} setOpcion={setOpcion} />
           {param === "todos" ? <Todos /> : <MenuOtro param={param} />}

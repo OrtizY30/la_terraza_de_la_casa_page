@@ -14,7 +14,6 @@ const Todos = () => {
   const menuTerrazaKids = data.filter(
     (item) => item.categoria === "terraza Kids"
   );
-
   return (
     <>
       <div className="max-w-5xl mt-28 mx-auto">

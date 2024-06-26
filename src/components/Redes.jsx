@@ -6,6 +6,7 @@ const Redes = () => {
       <p className="dark:text-white font-black mb-3">Síguenos en instagram</p>
       <div className="h-[450px] sm:h-[650px] ">
         <iframe
+          title="myFrame"
           width="100%"
           height="100%"
           src="https://www.instagram.com/laterrazadelacasa/embed"

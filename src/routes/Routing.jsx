@@ -6,6 +6,7 @@ import Contactos from "../page/Contactos";
 import Menu from "../page/Menu";
 import Favoritos from "../page/Favoritos";
 import { useEffect } from "react";
+import Cart from "../components/Cart";
 
 const Routing = () => {
   const location = useLocation()
@@ -26,6 +27,7 @@ const Routing = () => {
         <Route index element={<Home />} />
         <Route path="inicio" element={<Home />} />
         <Route path="menu/:param" element={<Menu />} />
+        <Route path="pedido" element={<Cart/>} />
         <Route path="favoritos" element={<Favoritos />} />
         <Route path="quienes-somos" element={<QuienesSomos />} />
         <Route path="contactos" element={<Contactos />} />

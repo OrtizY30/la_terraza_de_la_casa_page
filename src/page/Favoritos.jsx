@@ -17,7 +17,7 @@ const Favoritos = () => {
           <i className="fa-duotone fa-heart text-[250px] text-gray-400"></i>
         </div>
       ) : (
-        <section className="grid mt-16 grid-cols-1 md:grid-cols-2 md:m-8 ">
+        <section className="grid mt-16 grid-cols-1 lg:grid-cols-2 md:m-8 ">
           {menuFav.map((item, i) => (
             <CardMenu key={i} item={item} imagen={imgComida} />
           ))}
