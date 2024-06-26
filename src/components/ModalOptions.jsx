@@ -229,7 +229,7 @@ const ModalOptions = ({ item, handleModal, handleClose, open }) => {
       <div className="overflow-y-scroll scrollbar-hidden max-w-md dark:bg-customDark dark:text-white">
         <div className="flex flex-col gap-2 pb-16 border-t-2">
           {error.message && (
-            <div className=" mx-1 mt-2">
+            <div className="fixed w-full top-20 max-w-md mx-auto">
               <Alert
                 sx={{ color: "white" }}
                 variant="filled"

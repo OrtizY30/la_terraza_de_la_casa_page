@@ -112,9 +112,9 @@ const ModalOrder = ({ setShowModaOrder }) => {
   };
 
   return (
-    <div className=" my-6 flex flex-col gap-2 max-w-sm mx-auto overflow-hidden">
+    <div className=" my-6 flex flex-col gap-2 max-w-md mx-auto overflow-hidden p-2">
       {error.message && (
-        <div className="w-5xl mx-1">
+        <div className=" max-w-sm w-full">
           <Alert
             sx={{ color: "white" }}
             variant="filled"
