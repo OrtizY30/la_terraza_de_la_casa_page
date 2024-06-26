@@ -1,5 +1,4 @@
 import React, { useContext, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
 import { AppContext } from "../context/AppContext";
 import {
   Card,
@@ -8,12 +7,10 @@ import {
   CardMedia,
   Collapse,
   Fab,
-  IconButton,
   Modal,
 } from "@mui/material";
 import imagen from "/img/logo.webp";
 import ModalOptions from "./ModalOptions";
-import styled from "styled-components";
 import { Favorite } from "@mui/icons-material";
 import { formatCurrency } from "../helpes";
 
