@@ -24,11 +24,10 @@ const Cart = () => {
       <div className=" dark:text-white  ">
         {carrito.length > 0 ? (
           <div className="pb-24">
-            <h2 className="font-bold px-3 border-b-2 border-gray-400/50 text-2xl dark:text-white">Items</h2>
 
             {carrito.map((pedido, index) => (
               <div key={index} >
-                <div className="shadow my-2 dark:shadow-gray-800 p-2 flex items-center gap-2 justify-between ">
+                <div className="shadow  dark:shadow-gray-800 px-2 py-3 flex items-center gap-2 justify-between ">
                   <div className=" flex gap-2 items-center">
                     <img
                       className=" rounded-md"

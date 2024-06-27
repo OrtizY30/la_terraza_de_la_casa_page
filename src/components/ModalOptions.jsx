@@ -6,14 +6,15 @@ import {
   Accordion,
   AccordionDetails,
   AccordionSummary,
-  Alert,
+  Card,
   Fade,
   Modal,
   Paper,
 } from "@mui/material";
-import { ExpandMore, ShoppingBag } from "@mui/icons-material";
+import { ErrorOutline, ExpandMore, ShoppingBag } from "@mui/icons-material";
 import BackDrop from "./BackDrop";
 import ModalSucces from "./ModalSucces";
+
 const adicionales = [
   {
     adicion: "Roast beef",
@@ -57,7 +58,7 @@ const adicionales = [
   },
 ];
 
-const ModalOptions = ({ item, handleModal, handleClose, open }) => {
+const ModalOptions = ({ item, handleModal, handleClose }) => {
   const { agregarAlCarrito } = useContext(AppContext);
   const [pedido, setPedido] = useState({
     id: uuidv4(),
@@ -131,7 +132,7 @@ const ModalOptions = ({ item, handleModal, handleClose, open }) => {
 
       setTimeout(() => {
         setError("");
-      }, 3000);
+      }, 2500);
       return;
     } else if (
       isValidBebida &&
@@ -147,7 +148,7 @@ const ModalOptions = ({ item, handleModal, handleClose, open }) => {
 
       setTimeout(() => {
         setError("");
-      }, 3000);
+      }, 2500);
       return;
     } else if (
       pedido.tamaño === "" &&
@@ -161,7 +162,7 @@ const ModalOptions = ({ item, handleModal, handleClose, open }) => {
 
       setTimeout(() => {
         setError("");
-      }, 3000);
+      }, 2500);
       return;
     } else if (pedido.tamaño === "" && item.categoria === "ensaladas") {
       setError({
@@ -171,7 +172,7 @@ const ModalOptions = ({ item, handleModal, handleClose, open }) => {
 
       setTimeout(() => {
         setError("");
-      }, 3000);
+      }, 2500);
       return;
     }
 
@@ -189,7 +190,7 @@ const ModalOptions = ({ item, handleModal, handleClose, open }) => {
       handleModal(); // Cerrar modal después de enviar el pedido
       handleClose();
       handleCloseSucces();
-    }, 3500);
+    }, 4000);
   };
 
   const [expanded, setExpanded] = useState(false);
@@ -213,32 +214,48 @@ const ModalOptions = ({ item, handleModal, handleClose, open }) => {
   return (
     <>
       <BackDrop open={openBackdrop} />
-      {openSucces && (
-        <Modal
-          open={openSucces}
-          onClose={handleCloseSucces}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <ModalSucces>
-            {"Haz añadido un nuevo producto a tu carrito"}
-          </ModalSucces>
-        </Modal>
-      )}
+
+      <Modal
+        open={openSucces}
+        onClose={handleCloseSucces}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <ModalSucces>
+          {"Haz añadido un nuevo producto a tu carrito"}
+        </ModalSucces>
+      </Modal>
 
       <div className="overflow-y-scroll scrollbar-hidden max-w-md dark:bg-customDark dark:text-white">
         <div className="flex flex-col gap-2 pb-16 border-t-2">
-          {error.message && (
-            <div className="fixed w-full top-20 max-w-md mx-auto">
-              <Alert
-                sx={{ color: "white" }}
-                variant="filled"
-                severity={error.alert}
-              >
+          <Modal
+            open={error.message}
+            onClose={error.message}
+            className="relative"
+          >
+            <Card
+              sx={{
+                top: "40%",
+                position: "absolute",
+                right: "0%",
+                left: "0%",
+                borderRadius: 4,
+                width: 390,
+              }}
+              className="px-2 py-6 pb-12 mx-auto text-red-500 "
+            >
+              <p className="text-center">
+                <ErrorOutline
+                  sx={{ fontSize: 70 }}
+                  className="text-red-700 m-3"
+                />
+              </p>
+              <p className="text-red-700 text-xl text-center">
                 {error.message}
-              </Alert>
-            </div>
-          )}
+              </p>
+            </Card>
+          </Modal>
+
           {/* Opciones para sandwches y ensaladas */}
           <div>
             {isValidPan &&

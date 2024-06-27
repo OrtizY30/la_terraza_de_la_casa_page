@@ -6,7 +6,8 @@ import {
   formatCurrency,
 } from "../helpes";
 import { AppContext } from "../context/AppContext";
-import { Alert } from "@mui/material";
+import { Card, Modal } from "@mui/material";
+import { ErrorOutline } from "@mui/icons-material";
 
 const ModalOrder = ({ setShowModaOrder }) => {
   const { carrito } = useContext(AppContext);
@@ -42,13 +43,16 @@ const ModalOrder = ({ setShowModaOrder }) => {
     );
 
     if (missingFields.length > 0) {
-      // handleClick({ vertical: 'top', horizontal: 'center' })
       setError({
         alert: "error",
         message: `Por favor, rellena todos los campos: ${missingFields.join(
           ", "
         )}`,
       });
+
+      setTimeout(() => {
+        setError("");
+      }, 2500);
       return;
     }
 
@@ -65,7 +69,7 @@ const ModalOrder = ({ setShowModaOrder }) => {
             ? adicionales
                 .map(
                   (ad) =>
-                    `${capitalizeFirstLetter(ad.adicion)} - ${formatCurrency(
+                    `* ${capitalizeFirstLetter(ad.adicion)} - ${formatCurrency(
                       ad.precio
                     )}`
                 )
@@ -80,7 +84,7 @@ const ModalOrder = ({ setShowModaOrder }) => {
           item.pan ? `\n\nPan: *${capitalizeFirstLetter(item.pan)}*` : ""
         }${
           item.adicionales.length > 0
-            ? `\n\nAdicionales:\n* ${adicionalesTexto}`
+            ? `\n\nAdicionales:\n${adicionalesTexto}`
             : ""
         }${
           item.observacion
@@ -94,13 +98,12 @@ const ModalOrder = ({ setShowModaOrder }) => {
       })
       .join("");
 
-    const message = `Hola, deseo realizar un pedido.\n\nCliente: *${
-      user.nombre
-    }*\nDirección: *${user.direccion.trim()}*\nObservación: *${user.observacion.trim()}*\nTlf: ${user.telefono.trim()}\nMétodo de pago: *${user.metodo.trim()}*\n\n-----------------------------------------\n${orderDetails}\nTotal a pagar:  *${formatCurrency(
+    const message = `Hola, deseo realizar un pedido.\n\nCliente: *${user.nombre.trim()}*\nDirección: *${user.direccion.trim()}*\nObservación: *${user.observacion.trim()}*\nTlf: ${user.telefono.trim()}\nMétodo de pago: *${user.metodo.trim()}*\n\n-----------------------------------------\n${orderDetails}\nTotal a pagar:  *${formatCurrency(
       calcularTotalCarrito(carrito)
     )}*\n\n*El valor del total a pagar no incluye el costo del domicilio.* `;
 
     const phoneNumber = "3117164854"; // Reemplaza con el número de teléfono del restaurante en formato internacional
+    
     const whatsappLink = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
       message
     )}`;
@@ -113,17 +116,29 @@ const ModalOrder = ({ setShowModaOrder }) => {
 
   return (
     <div className=" my-6 flex flex-col gap-2 max-w-md mx-auto overflow-hidden p-2">
-      {error.message && (
-        <div className=" max-w-sm w-full">
-          <Alert
-            sx={{ color: "white" }}
-            variant="filled"
-            severity={error.alert}
-          >
-            {error.message}
-          </Alert>
-        </div>
-      )}
+      <Modal 
+      open={error.message} 
+      onClose={error.message} 
+      className="relative">
+        <Card
+          sx={{
+            color: "white",
+            top: "30%",
+            position: "absolute",
+            right: "0%",
+            left: "0%",
+            borderRadius: 4,
+            width: 390,
+          }}
+          className="px-2 py-6 pb-12 mx-auto"
+        >
+          <p className="text-center">
+            <ErrorOutline sx={{ fontSize: 70 }} className="text-red-700 m-3" />
+          </p>
+          <p className="text-red-700 text-xl text-center">{error.message}</p>
+        </Card>
+      </Modal>
+
       <h2 className="text-white font-bold text-center text-4xl uppercase ">
         Ingrese sus Datos
       </h2>

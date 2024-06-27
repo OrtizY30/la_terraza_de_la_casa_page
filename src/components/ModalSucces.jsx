@@ -1,30 +1,31 @@
-import Box from "@mui/material/Box";
 import { CheckCircleOutline } from "@mui/icons-material";
+import { Card } from "@mui/material";
 
 const style = {
+  top: "30%",
   position: "absolute",
-  top: "20%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  //   bgcolor: "background.paper",
-  boxShadow: 24,
-  p: 1,
-  borderRadius: 2,
+  right: "0%",
+  left: "0%",
+  borderRadius: 4,
+  width: 390,
 };
 
 export default function ModalSucces({ children }) {
   return (
-    <div>
-      <Box
-        sx={style}
-        className="bg-green-800 border-2 border-green-500 text-white flex items-center gap-2"
-      >
-        <CheckCircleOutline sx={{ fontSize: 40 }} className="text-green-200" />
-        <p id="modal-modal-title" className=" text-sm text-center">
-          {children}
-        </p>
-      </Box>
-    </div>
+    <Card
+      sx={style}
+       className="px-2 py-6 pb-12 mx-auto"
+    >
+      <p className="text-center">
+
+      <CheckCircleOutline 
+      sx={{ fontSize: 70 }} 
+      className="text-green-700 m-3 "
+      />
+      </p>
+      <p id="modal-modal-title" className="text-xl text-center text-green-700">
+        {children}
+      </p>
+    </Card>
   );
 }
