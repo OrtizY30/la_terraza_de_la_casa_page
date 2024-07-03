@@ -5,6 +5,13 @@ import { Link } from "react-router-dom";
 const LogoWs = () => {
   const [alert, setAlert] = useState(true);
 
+  const message = 'Hola, necesito ayuda.'
+  const phoneNumber = "3117164854"; // Reemplaza con el número de teléfono del restaurante en formato internacional
+    
+  const whatsappLink = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
+    message
+  )}`;
+
   useEffect(() => {
     setTimeout(() => {
       setAlert(false);
@@ -13,7 +20,7 @@ const LogoWs = () => {
   return (
     <div className=" flex sticky bottom-20 cursor-pointer z-50 ml-4 w-12 ">
       <Link
-        to="https://api.whatsapp.com/send?phone=3117164854&text=Hola,%necesito%ayúda%."
+        to={whatsappLink}
         target="_blank"
         className="flex items-center relative "
       >
@@ -37,7 +44,7 @@ const LogoWs = () => {
             alert ? "py-2 pr-5 pl-10 -ml-6 w-auto" : "left-0 w-0 py-0 pr-0 pl-0 h-0"
           } transition-all duration-500 ease-in-out`}
         >
-          Hola, necesitas ayúda? presiona aqui!
+          Hola, necesitas ayuda? presiona aquí!
         </p>
       </Link>
     </div>
