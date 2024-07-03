@@ -143,7 +143,7 @@ const ModalOrder = ({ setShowModaOrder }) => {
         Ingrese sus Datos
       </h2>
       <div className="flex flex-col">
-        <label htmlFor="nombre" className="dark:text-white font-bold">
+        <label htmlFor="nombre" className="text-white font-bold">
           Nombre :
         </label>
         <input
@@ -156,7 +156,7 @@ const ModalOrder = ({ setShowModaOrder }) => {
         />
       </div>
       <div className="flex flex-col ">
-        <label htmlFor="direccion" className="dark:text-white font-bold">
+        <label htmlFor="direccion" className="text-white font-bold">
           Dirección :
         </label>
         <input
@@ -170,7 +170,7 @@ const ModalOrder = ({ setShowModaOrder }) => {
       </div>
 
       <div className="flex flex-col">
-        <label htmlFor="observacion" className="dark:text-white font-bold">
+        <label htmlFor="observacion" className="text-white font-bold">
           Observación :
         </label>
         <textarea
@@ -182,7 +182,7 @@ const ModalOrder = ({ setShowModaOrder }) => {
         />
       </div>
       <div className="flex flex-col">
-        <label htmlFor="telefono" className="dark:text-white font-bold">
+        <label htmlFor="telefono" className="text-white font-bold">
           Teléfono :
         </label>
         <input
@@ -195,7 +195,7 @@ const ModalOrder = ({ setShowModaOrder }) => {
         />
       </div>
       <div className="flex flex-col">
-        <label htmlFor="metodo" className="dark:text-white font-bold">
+        <label htmlFor="metodo" className="text-white font-bold">
           {" "}
           Método de Pago :
         </label>

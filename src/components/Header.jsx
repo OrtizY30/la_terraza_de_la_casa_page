@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import logo from "/img/logo.webp";
 import { Link, useLocation } from "react-router-dom";
 import { MoreVert } from "@mui/icons-material";
-import { IconButton, Menu, MenuItem } from "@mui/material";
+import { Badge, IconButton, Menu, MenuItem } from "@mui/material";
 import PowerBy from "./PowerBy";
+import { AppContext } from "../context/AppContext";
 
 const Header = () => {
+  const {carrito } = useContext(AppContext);
+  const cartCount = carrito.length;
   const location = useLocation();
   const [open, setOpen] = useState(false);
 
@@ -96,14 +99,29 @@ const Header = () => {
             </div>
           </>
         ) : (
-          <div className="flex items-center gap-3">
-            <Link to={"/inicio"} className="ml-2">
-              <i className="fa-solid fa-arrow-left text-2xl transition-all duration-100 hover:scale-105 dark:text-white"></i>
-            </Link>
+          <div className="flex items-center justify-between w-full pr-4">
+            <div className="flex items-center gap-3">
+              <Link to={"/inicio"} className="ml-2">
+                <i className="fa-solid fa-arrow-left text-2xl transition-all duration-100 hover:scale-105 dark:text-white"></i>
+              </Link>
 
-            <p className="font-extrabold capitalize text-xl dark:text-white ">
-              {!path && <span className="ml-3">Menú</span>}
-            </p>
+              <p className="font-extrabold capitalize text-xl dark:text-white ">
+                {!path && <span className="ml-3">Menú</span>}
+              </p>
+            </div>
+
+            {cartCount > 0 && (
+              <Link to={"/pedido"}>
+              <Badge badgeContent={cartCount} color="error" sx={{ color: "white" }}>
+                <i
+                  className="text-gray-500 fa fa-bag-shopping dark:text-white"
+                  style={{ fontSize: "24px" }}
+                ></i>
+              </Badge>
+            </Link>
+            )}
+
+            
           </div>
         )}
 
