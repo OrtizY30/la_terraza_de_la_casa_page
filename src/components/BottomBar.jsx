@@ -80,7 +80,7 @@ const BottomBar = () => {
             <Link
               key={i}
               to={icon.path}
-              className={`transition-all duration-300 px-[2px] ${
+              className={`transition-all duration-300 w-full flex justify-center ${
                 location.pathname === "/" + icon.name
                   ? "border-customRed border-t-4  "
                   : "border-t-4 border-transparent"
@@ -90,14 +90,16 @@ const BottomBar = () => {
                 <Badge
                   badgeContent={favCount}
                   color="error"
-                  sx={{ color: "red", left: 50, top: -11 }}
+                  sx={{ color: "red", top: 12 }}
+                   className="sm:left-[58%] md:left-[48%] left-[62%] lg:left-[35%]"
                 ></Badge>
               )}
               {icon.name === "pedido" && (
                 <Badge
                   badgeContent={cartCount}
                   color="error"
-                  sx={{ color: "red", left: 50, top: -11 }}
+                  sx={{ color: "red", top: 12 }}
+                  className="sm:left-[58%] md:left-[48%] left-[62%] lg:left-[35%]"
                 ></Badge>
               )}
               <BottomNavigationAction

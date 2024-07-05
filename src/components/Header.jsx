@@ -114,7 +114,7 @@ const Header = () => {
               <Link to={"/pedido"}>
               <Badge badgeContent={cartCount} color="error" sx={{ color: "white" }}>
                 <i
-                  className="text-black fa fa-bag-shopping dark:text-white"
+                  className="text-black fa-light fa-bag-shopping dark:text-white"
                   style={{ fontSize: "24px" }}
                 ></i>
               </Badge>

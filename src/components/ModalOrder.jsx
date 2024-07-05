@@ -8,6 +8,8 @@ import {
 import { AppContext } from "../context/AppContext";
 import { Card, Modal } from "@mui/material";
 import { ErrorOutline } from "@mui/icons-material";
+import { Link } from "react-router-dom";
+import logoWs from "/img/ws-logo.avif";
 
 const ModalOrder = ({ setShowModaOrder }) => {
   const { carrito } = useContext(AppContext);
@@ -22,6 +24,8 @@ const ModalOrder = ({ setShowModaOrder }) => {
     alert: "",
     message: "",
   });
+  const [whatsappUrl, setWhatsappUrl] = useState("");
+  const [alertSucces, setalArtSucces] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -103,23 +107,34 @@ const ModalOrder = ({ setShowModaOrder }) => {
     )}*\n\n*El valor del total a pagar no incluye el costo del domicilio.* `;
 
     const phoneNumber = "3117164854"; // Reemplaza con el número de teléfono del restaurante en formato internacional
-    
+
     const whatsappLink = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
       message
     )}`;
+    setWhatsappUrl(whatsappLink);
+    setalArtSucces(true);
+    // window.location.href = whatsappLink;
+    // window.open(whatsappLink, "_blank");
+    // setShowModaOrder(false);
+    // localStorage.removeItem("carrito");
+    // setTimeout(() => {
+    //   window.location.reload();
+    // }, 500);
+  };
 
-    window.open(whatsappLink, "_blank");
+  const finalizaeOrden = () => {
+    setalArtSucces(false);
     setShowModaOrder(false);
     localStorage.removeItem("carrito");
-    window.location.reload();
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
   };
 
   return (
     <div className=" my-6 flex flex-col gap-2 max-w-md mx-auto overflow-hidden p-2">
-      <Modal 
-      open={error.message} 
-      onClose={error.message} 
-      className="relative">
+      {/* Modal de error algun error */}
+      <Modal open={error.message} onClose={error.message} className="relative">
         <Card
           sx={{
             color: "white",
@@ -136,6 +151,51 @@ const ModalOrder = ({ setShowModaOrder }) => {
             <ErrorOutline sx={{ fontSize: 70 }} className="text-red-700 m-3" />
           </p>
           <p className="text-red-700 text-xl text-center">{error.message}</p>
+        </Card>
+      </Modal>
+
+      {/* Modal del enviar finalizar el pedido */}
+      <Modal open={alertSucces} onClose={alertSucces} className="relative">
+        <Card
+          sx={{
+            color: "white",
+            top: "30%",
+            position: "absolute",
+            right: "0%",
+            left: "0%",
+            borderRadius: 4,
+            width: 390,
+          }}
+          className=" p-2 mx-auto flex flex-col justify-between gap-4"
+        >
+          <p className="text-black text-center font-black p-x">
+            Su pedido está a punto de finalizar, lo estaremos dirigiendo a
+            nuestro WhatsApp, donde se terminará de tomar su orden.
+          </p>
+
+          <p className="text-center py2">
+            <i
+              aria-hidden="true"
+              className="v-icon notranslate linktree fa fa-brands fa-whatsapp  text-8xl text-green-500"
+            ></i>
+          </p>
+          <div className="flex gap-4">
+            <button
+              onClick={finalizaeOrden}
+              className="bg-green-700 w-full p-2 text-white font-bold rounded-lg hover:bg-green-500 transition-all duration-500 ease-in-out hover:scale-[1.02] uppercase"
+            >
+              {" "}
+              <Link to={whatsappUrl} target="_blank">
+                aceptar
+              </Link>{" "}
+            </button>
+            <button
+              className="bg-red-700 w-full p-2 text-white font-bold rounded-lg hover:bg-red-500 transition-all duration-500 ease-in-out hover:scale-[1.02] uppercase"
+              onClick={() => setalArtSucces(false)}
+            >
+              cancelar
+            </button>
+          </div>
         </Card>
       </Modal>
 
