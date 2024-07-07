@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import {
   calcularTotalCarrito,
   calcularTotalPedido,
@@ -9,7 +9,7 @@ import { AppContext } from "../context/AppContext";
 import { Card, Modal } from "@mui/material";
 import { ErrorOutline } from "@mui/icons-material";
 import { Link } from "react-router-dom";
-import logoWs from "/img/ws-logo.avif";
+import BackDrop from "./BackDrop";
 
 const ModalOrder = ({ setShowModaOrder }) => {
   const { carrito } = useContext(AppContext);
@@ -26,6 +26,22 @@ const ModalOrder = ({ setShowModaOrder }) => {
   });
   const [whatsappUrl, setWhatsappUrl] = useState("");
   const [alertSucces, setalArtSucces] = useState(false);
+  const [openBackDrop, setOpenBackDrop] = useState(false);
+  useEffect(() => {
+    if (whatsappUrl) {
+      window.location.href = whatsappUrl;
+      // window.open(whatsappUrl, "_blank");
+
+      setShowModaOrder(false);
+      localStorage.removeItem("carrito");
+      setalArtSucces(false);
+      setTimeout(() => {
+          window.location.reload();
+          setWhatsappUrl('')
+        }, 500);
+    }
+
+  }, [whatsappUrl]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -112,29 +128,25 @@ const ModalOrder = ({ setShowModaOrder }) => {
       message
     )}`;
     setWhatsappUrl(whatsappLink);
+   if (whatsappUrl) {
     setalArtSucces(true);
-    // window.location.href = whatsappLink;
-    // window.open(whatsappLink, "_blank");
-    // setShowModaOrder(false);
-    // localStorage.removeItem("carrito");
-    // setTimeout(() => {
-    //   window.location.reload();
-    // }, 500);
+    // setOpenBackDrop(false);
+   }
   };
 
-  const finalizaeOrden = () => {
-    setalArtSucces(false);
-    setShowModaOrder(false);
-    localStorage.removeItem("carrito");
-    setTimeout(() => {
-      window.location.reload();
-    }, 500);
-  };
+  // const finalizaeOrden = () => {
+  //   setTimeout(() => {
+  //     setalArtSucces(false);
+  //     setShowModaOrder(false);
+  //     localStorage.removeItem("carrito");
+  //     window.location.reload();
+  //   }, 1000);
+  // };
 
   return (
     <div className=" my-6 flex flex-col gap-2 max-w-md mx-auto overflow-hidden p-2">
       {/* Modal de error algun error */}
-      <Modal open={error.message} onClose={error.message} className="relative">
+      <Modal open={error.message} className="relative">
         <Card
           sx={{
             color: "white",
@@ -155,49 +167,51 @@ const ModalOrder = ({ setShowModaOrder }) => {
       </Modal>
 
       {/* Modal del enviar finalizar el pedido */}
-      <Modal open={alertSucces} onClose={alertSucces} className="relative">
-        <Card
-          sx={{
-            color: "white",
-            top: "30%",
-            position: "absolute",
-            right: "0%",
-            left: "0%",
-            borderRadius: 4,
-            width: 390,
-          }}
-          className=" p-2 mx-auto flex flex-col justify-between gap-4"
-        >
-          <p className="text-black text-center font-black p-x">
-            Su pedido está a punto de finalizar, lo estaremos dirigiendo a
-            nuestro WhatsApp, donde se terminará de tomar su orden.
-          </p>
+   
+        <Modal open={alertSucces} onClose={alertSucces} className="relative">
+          <Card
+            sx={{
+              color: "white",
+              top: "30%",
+              position: "absolute",
+              right: "0%",
+              left: "0%",
+              borderRadius: 4,
+              width: 390,
+            }}
+            className=" p-2 mx-auto flex flex-col justify-between gap-4"
+          >
+            <p className="text-black text-center font-black p-x">
+              Su pedido está a punto de finalizar, lo estaremos dirigiendo a
+              nuestro WhatsApp, donde se terminará de tomar su orden.
+            </p>
 
-          <p className="text-center py2">
-            <i
-              aria-hidden="true"
-              className="v-icon notranslate linktree fa fa-brands fa-whatsapp  text-8xl text-green-500"
-            ></i>
-          </p>
-          <div className="flex gap-4">
-            <button
-              onClick={finalizaeOrden}
-              className="bg-green-700 w-full p-2 text-white font-bold rounded-lg hover:bg-green-500 transition-all duration-500 ease-in-out hover:scale-[1.02] uppercase"
-            >
-              {" "}
-              <Link to={whatsappUrl} target="_blank">
-                aceptar
-              </Link>{" "}
-            </button>
-            <button
-              className="bg-red-700 w-full p-2 text-white font-bold rounded-lg hover:bg-red-500 transition-all duration-500 ease-in-out hover:scale-[1.02] uppercase"
-              onClick={() => setalArtSucces(false)}
-            >
-              cancelar
-            </button>
-          </div>
-        </Card>
-      </Modal>
+            <p className="text-center py2">
+              <i
+                aria-hidden="true"
+                className="v-icon notranslate linktree fa fa-brands fa-whatsapp  text-8xl text-green-500"
+              ></i>
+            </p>
+            {/* <div className="flex gap-4">
+              <button
+                onClick={finalizaeOrden}
+                className="bg-green-700 w-full p-2 text-white font-bold rounded-lg hover:bg-green-500 transition-all duration-500 ease-in-out hover:scale-[1.02] uppercase"
+              >
+                {" "}
+                <Link to={whatsappUrl} target="_blank">
+                  aceptar
+                </Link>{" "}
+              </button>
+              <button
+                className="bg-red-700 w-full p-2 text-white font-bold rounded-lg hover:bg-red-500 transition-all duration-500 ease-in-out hover:scale-[1.02] uppercase"
+                onClick={() => setalArtSucces(false)}
+              >
+                cancelar
+              </button>
+            </div> */}
+          </Card>
+        </Modal>
+    
 
       <h2 className="text-white font-bold text-center text-4xl uppercase ">
         Ingrese sus Datos
