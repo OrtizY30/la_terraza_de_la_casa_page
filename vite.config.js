@@ -18,34 +18,22 @@ export default defineConfig({
         theme_color: "transparent",
         icons: [
           {
-            "src": "assets/logocasual.webp",
-            "sizes": "144x144",
-            "type": "image/webp"
+            src: "assets/vite.svg",
+            sizes: "144x144",
+            type: "image/svg"
           },
           {
-            "src": "assets/logocasual.webp",
-            "sizes": "192x192",
-            "type": "image/webp"
+            src: "assets/vite.svg",
+            sizes: "192x192",
+            type: "image/svg"
           },
           {
-            "src": "assets/logocasual.webp",
-            "sizes": "512x512",
-            "type": "image/webp"
-          }
-        ],
-        "screenshots": [
-          {
-            "src": "assets/screenshot.webp",
-            "sizes": "640x480",
-            "type": "image/webp"
-          },
-          {
-            "src": "assets/screenshot.webp",
-            "sizes": "1280x720",
-            "type": "image/webp"
+            src: "assets/vite.svg",
+            sizes: "512x512",
+            type: "image/svg"
           }
         ]
-      },
+      }
     }),
   ],
   build: {
