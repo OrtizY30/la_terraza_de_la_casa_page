@@ -17,12 +17,12 @@ export default defineConfig({
           {
             src: 'assets/logocasual.avif',
             sizes: '192x192',
-            type: 'image/png'
+            type: 'image/avif'
           },
           {
             src: 'assets/logocasual.avif',
             sizes: '512x512',
-            type: 'image/png'
+            type: 'image/avif'
           }
         ]
       }
