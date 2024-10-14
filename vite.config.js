@@ -18,14 +18,14 @@ export default defineConfig({
         theme_color: "transparent",
         icons: [
           {
-            src: "assets/logocasual.avif",
+            src: "assets/logocasual.png",
             sizes: "192x192",
-            type: "image/avif",
+            type: "image/png",
           },
           {
-            src: "assets/logocasual.avif",
+            src: "assets/logocasual.png",
             sizes: "512x512",
-            type: "image/avif",
+            type: "image/png",
           },
         ],
       },
