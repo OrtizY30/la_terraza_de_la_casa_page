@@ -91,7 +91,7 @@ const BottomBar = () => {
                   badgeContent={favCount}
                   color="error"
                   sx={{ color: "red", top: 12 }}
-                   className="sm:left-[58%] md:left-[48%] left-[62%] lg:left-[35%]"
+                  className="sm:left-[58%] md:left-[48%] left-[62%] lg:left-[35%]"
                 ></Badge>
               )}
               {icon.name === "pedido" && (
@@ -102,7 +102,22 @@ const BottomBar = () => {
                   className="sm:left-[58%] md:left-[48%] left-[62%] lg:left-[35%]"
                 ></Badge>
               )}
-              <BottomNavigationAction
+              {/* <BottomNavigationAction
+                label={icon.name}
+                icon={
+                  
+                  <i
+                    className={`fa transition-all duration-300 ${icon.icon} ${
+                      location.pathname === "/" + icon.name
+                        ? " text-customRed fa-solid scale-125 "
+                        : "text-black fa-regular dark:text-white"
+                    }`}
+                    style={{ fontSize: "16px" }}
+                  ></i>
+             
+              } /> */}
+
+<BottomNavigationAction
                 label={icon.name}
                 icon={
                   <i

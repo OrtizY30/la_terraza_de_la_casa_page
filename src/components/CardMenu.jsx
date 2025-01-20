@@ -12,7 +12,7 @@ import {
 import imagen from "/img/logo.webp";
 import ModalOptions from "./ModalOptions";
 import { Favorite } from "@mui/icons-material";
-import { formatCurrency } from "../helpes";
+import { formatCurrency } from "../helpers";
 
 export const CardMenu = ({ item, id }) => {
   const { togleFav, fav } = useContext(AppContext);

@@ -4,12 +4,10 @@ import {
   calcularTotalPedido,
   capitalizeFirstLetter,
   formatCurrency,
-} from "../helpes";
+} from "../helpers";
 import { AppContext } from "../context/AppContext";
 import { Card, Modal } from "@mui/material";
 import { ErrorOutline } from "@mui/icons-material";
-import { Link } from "react-router-dom";
-import BackDrop from "./BackDrop";
 
 const ModalOrder = ({ setShowModaOrder }) => {
   const { carrito } = useContext(AppContext);
@@ -26,7 +24,7 @@ const ModalOrder = ({ setShowModaOrder }) => {
   });
   const [whatsappUrl, setWhatsappUrl] = useState("");
   const [alertSucces, setalArtSucces] = useState(false);
-  const [openBackDrop, setOpenBackDrop] = useState(false);
+
   useEffect(() => {
     if (whatsappUrl) {
       window.location.href = whatsappUrl;
@@ -36,11 +34,10 @@ const ModalOrder = ({ setShowModaOrder }) => {
       localStorage.removeItem("carrito");
       setalArtSucces(false);
       setTimeout(() => {
-          window.location.reload();
-          setWhatsappUrl('')
-        }, 500);
+        window.location.reload();
+        setWhatsappUrl("");
+      }, 500);
     }
-
   }, [whatsappUrl]);
 
   const handleInputChange = (e) => {
@@ -127,11 +124,13 @@ const ModalOrder = ({ setShowModaOrder }) => {
     const whatsappLink = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(
       message
     )}`;
-    setWhatsappUrl(whatsappLink);
-   if (whatsappUrl) {
-    setalArtSucces(true);
-    // setOpenBackDrop(false);
-   }
+    if (whatsappLink !== "") {
+      setalArtSucces(true);
+    }
+    setTimeout(() => {
+      setWhatsappUrl(whatsappLink);
+      setalArtSucces(false);
+    }, 3000);
   };
 
   // const finalizaeOrden = () => {
@@ -146,6 +145,7 @@ const ModalOrder = ({ setShowModaOrder }) => {
   return (
     <div className=" my-6 flex flex-col gap-2 max-w-md mx-auto overflow-hidden p-2">
       {/* Modal de error algun error */}
+
       <Modal open={error.message} className="relative">
         <Card
           sx={{
@@ -160,60 +160,40 @@ const ModalOrder = ({ setShowModaOrder }) => {
           className="px-2 py-6 pb-12 mx-auto"
         >
           <p className="text-center">
-            <ErrorOutline sx={{ fontSize: 70 }} className="text-red-700 m-3" />
+            <ErrorOutline sx={{ fontSize: 70 }} className="text-red-700 m-3 animate-pulse" />
           </p>
           <p className="text-red-700 text-xl text-center">{error.message}</p>
         </Card>
       </Modal>
 
       {/* Modal del enviar finalizar el pedido */}
-   
-        <Modal open={alertSucces} onClose={alertSucces} className="relative">
-          <Card
-            sx={{
-              color: "white",
-              top: "30%",
-              position: "absolute",
-              right: "0%",
-              left: "0%",
-              borderRadius: 4,
-              width: 390,
-            }}
-            className=" p-2 mx-auto flex flex-col justify-between gap-4"
-          >
-            <p className="text-black text-center font-black p-x">
-              Su pedido está a punto de finalizar, lo estaremos dirigiendo a
-              nuestro WhatsApp, donde se terminará de tomar su orden.
-            </p>
 
-            <p className="text-center py2">
-              <i
-                aria-hidden="true"
-                className="v-icon notranslate linktree fa fa-brands fa-whatsapp  text-8xl text-green-500"
-              ></i>
-            </p>
-            {/* <div className="flex gap-4">
-              <button
-                onClick={finalizaeOrden}
-                className="bg-green-700 w-full p-2 text-white font-bold rounded-lg hover:bg-green-500 transition-all duration-500 ease-in-out hover:scale-[1.02] uppercase"
-              >
-                {" "}
-                <Link to={whatsappUrl} target="_blank">
-                  aceptar
-                </Link>{" "}
-              </button>
-              <button
-                className="bg-red-700 w-full p-2 text-white font-bold rounded-lg hover:bg-red-500 transition-all duration-500 ease-in-out hover:scale-[1.02] uppercase"
-                onClick={() => setalArtSucces(false)}
-              >
-                cancelar
-              </button>
-            </div> */}
-          </Card>
-        </Modal>
-    
+      <Modal open={alertSucces} onClose={alertSucces} className="relative">
+        <Card
+          sx={{
+            color: "white",
+            top: "30%",
+            position: "absolute",
+            right: "0%",
+            left: "0%",
+            borderRadius: 4,
+            width: 390,
+          }}
+          className=" mx-auto flex flex-col justify-between p-4 gap-4"
+        >
+          <p className="text-lg text-center text-green-700">
+            ¡Gracias por tu pedido! Estás a punto de ser redirigido a nuestro
+            WhatsApp para finalizar tu orden.
+          </p>
+          <i
+            aria-hidden="true"
+            // className="v-icon notranslate linktree fa fa-brands fa-whatsapp text-center   text-7xl text-green-500"
+            className="fa-brands fa-whatsapp text-center text-7xl text-green-500 animate-pulse"
+          ></i>
+        </Card>
+      </Modal>
 
-      <h2 className="text-white font-bold text-center text-4xl uppercase ">
+      <h2 className="text-white font-bold text-center text-3xl md:text-4xl uppercase ">
         Ingrese sus Datos
       </h2>
       <div className="flex flex-col">
@@ -283,10 +263,11 @@ const ModalOrder = ({ setShowModaOrder }) => {
         />
       </div>
       <button
-        className="text-white bg-green-700 rounded-lg w-full font-bold p-2 hover:bg-green-500 transition-all duration-500 ease-in-out hover:scale-[1.02]"
+        className="text-white bg-green-700 rounded-lg items-center mt-2 flex flex-row  justify-center w-full font-bold p-1  hover:bg-green-500 transition-all duration-500 ease-in-out hover:scale-[1.02]"
         onClick={handleOrder}
       >
-        Aceptar
+        <img src="img/ws-logo.webp" alt="" width={50} />
+        <p>Enviar pedido al WhatsApp</p>
       </button>
     </div>
   );

@@ -9,29 +9,31 @@ export default defineConfig({
     VitePWA({
       registerType: "autoUpdate",
       manifest: {
-        name: "La Terraza De La Casa",
-        short_name: "La Terraza De La Casa",
-        start_url: "/",
         display: "standalone",
-        background_color: "#FFFFFF",
-        scope: "/",
+        display_override: ['window-controls-overlay'],
+        lang: 'es-ES',
+        name: "La Terraza De La Casa",
+        short_name: "La Terraza De La Casa", 
         description: "Aplicación del restaurante para realizar pedidos online.",
         theme_color: "transparent",
+        background_color: "#232227",
         icons: [
           {
             src: "assets/vite.svg",
-            sizes: "144x144",
+            sizes: "32x32",
             type: "image/svg"
           },
           {
             src: "assets/vite.svg",
             sizes: "192x192",
-            type: "image/svg"
+            type: "image/svg",
+             purpose:'any'
           },
           {
             src: "assets/vite.svg",
             sizes: "512x512",
-            type: "image/svg"
+            type: "image/svg",
+            purpose: 'maskable'
           }
         ]
       }

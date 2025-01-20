@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { AppContext } from "../context/AppContext";
-import { calcularTotalPedido, formatCurrency } from "../helpes";
+import { calcularTotalPedido, formatCurrency } from "../helpers";
 import {
   Accordion,
   AccordionDetails,
@@ -247,7 +247,7 @@ const ModalOptions = ({ item, handleModal, handleClose }) => {
               <p className="text-center">
                 <ErrorOutline
                   sx={{ fontSize: 70 }}
-                  className="text-red-700 m-3"
+                  className="text-red-700 m-3 animate-pulse"
                 />
               </p>
               <p className="text-red-700 text-xl text-center">

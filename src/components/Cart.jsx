@@ -4,7 +4,7 @@ import {
   calcularTotalCarrito,
   calcularTotalPedido,
   formatCurrency,
-} from "../helpes";
+} from "../helpers";
 import { AppContext } from "../context/AppContext";
 import imagen from "/img/logo.webp";
 import { Delete, RemoveShoppingCart } from "@mui/icons-material";

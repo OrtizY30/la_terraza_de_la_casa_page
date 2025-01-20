@@ -20,7 +20,7 @@ export default function ModalSucces({ children }) {
 
       <CheckCircleOutline 
       sx={{ fontSize: 70 }} 
-      className="text-green-700 m-3 "
+      className="text-green-700 m-3 animate-pulse "
       />
       </p>
       <p id="modal-modal-title" className="text-xl text-center text-green-700">
